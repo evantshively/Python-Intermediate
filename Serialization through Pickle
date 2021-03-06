@@ -8,6 +8,13 @@ Object Serialization:
     pickle module under python implements a powerful algorithm
     for serialization and de-serialization of a data structure.
     Serialization - Helps with Construct, transfer and De-Contruct of data
+
+Which Objects can you Pickle: 
+    Booleans, Integers, Floats, Complex Numbers, String, Tuples, Lists,
+    Sets, and Dictionaries 
+
+In place of Pickle some people use a JSon Object (JavaScript Object Notation)
+
 '''
 
 import pickle as pk 
