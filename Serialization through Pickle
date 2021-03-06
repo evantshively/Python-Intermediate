@@ -26,3 +26,32 @@ file.close() # This will crea†e a serialized
 
 # this created a serialized folder in the same directory as our saved code
 # this new file is called pickle.dat
+
+
+
+''' How to unPickle the pickled object
+
+Organization structure used here is called
+FIFO: First in First Out
+
+Because of this concept of FIFO you want to make sure to put
+import Data first in your serialization structure
+
+Data is hashed through pickle. Pickle In and Pickle Out
+
+
+'''
+
+import pickle as pk
+print("Unpickle Lists")
+
+file = open("pickles.dat", "rb") #rb means read binary
+
+data1 = pk.load(file)
+data2 = pk.load(file)
+data3 = pk.load(file)
+
+print(data1) 
+print(data2)
+print(data3)
+
