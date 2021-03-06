@@ -65,4 +65,23 @@ conn.close()
 
 #The data is added to the table and can be viewed through the sqlite browser shown above
 
+'''
+Further Example from class:
+Creating and populating a customer Database 
+'''
 
+#create table
+cursor.execute("""
+                CREATE TABLE Customers (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                CustomerName TEXT NOT NULL,
+                ContactName TEXT NOT NULL,
+                Address TEXT NOT NULL,
+                City TEXT NOT NULL,
+                PostalCode TEXT NOT NULL,
+                Country TEXT NOT NULL
+                );
+    """)
+    
+#add Data 
+cursor.execute(" INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country) VALUES ('Bills House', 'Billy Bill', '1215 Bill st', 'Bill City', '2342', 'Billstonia')")
