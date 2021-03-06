@@ -18,3 +18,16 @@ else:
 
 with open("summary.txt", 'w', encoding='utf-8') as outFile:
     outFile.write(text % len(jpgData))
+
+'''
+How to use a similar method in order to open a PDF
+
+'''
+
+import io
+from PyPDF2 import PdfFileReader
+
+with open("sample.pdf", 'rb') as pdfFile:
+    pdfData = PdfFileReader(pdfFile)
+    page = pdfData.getPage(1)
+    print(page.extractText())
