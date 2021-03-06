@@ -1,1 +1,44 @@
+import sqlite3
+
+# Create a connection to the newdb object
+
+conn = sqlite3.connect("newdb.db")
+
+# Interact with the Database
+
+'''
+
+In Computer Science, a database cursor is the way for interaction with the DB: 
+A database cursor is a control structure that enables to traverse through the records database
+
+A database cursor is something we create via code (etc)
+
+'''
+# Getting the cursor object in order to execute SQL commands
+cursor = conn.cursor()
+
+#create our table
+
+cursor.execute("""
+                CREATE TABLE Table1 (
+                id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+                Col1 TEXT NOT NULL,
+                Col2 TEXT NOT NULL,
+                Col3 TEXT NOT NULL,
+                Col4 TEXT NOT NULL
+                );
+    """)
+#Insert Data into the Database 
+
+print("got it")
+#cursor.execute("INSERT INTO Table1(Col1, Col2, Col3, Col4)" VALUES ('Python1', 'Python2', 'Python3', 'Python4')")
+
+conn.commit()
+conn.close()
+
+'''
+We then downloaded the software 
+https://sqlitebrowser.org/dl/
+
+'''
 
