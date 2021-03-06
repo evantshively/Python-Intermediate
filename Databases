@@ -31,14 +31,35 @@ cursor.execute("""
 #Insert Data into the Database 
 
 print("got it")
-#cursor.execute("INSERT INTO Table1(Col1, Col2, Col3, Col4)" VALUES ('Python1', 'Python2', 'Python3', 'Python4')")
+
 
 conn.commit()
 conn.close()
 
 '''
+
 We then downloaded the software 
 https://sqlitebrowser.org/dl/
+for Syntax related to SQL https://www.w3schools.com/sql/sql_insert.asp
+
+This is a tool to interact with the database we created
+
 
 '''
+#To insert Data into our table
+
+import sqlite3
+
+conn = sqlite3.connect("newdb.db")
+
+cursor = conn.cursor()
+
+cursor.execute("INSERT INTO Table1(Col1, Col2, Col3, Col4) VALUES ('Python1', 'Python2', 'Python3', 'Python4')")
+
+cursor.execute(''' SELECT * FROM TABLE1 ''')
+data = cursor.fetchall() #This method retrives all data from the table
+print(data)
+
+conn.commit()
+conn.close()
 
