@@ -1,0 +1,28 @@
+'''
+Notebook Concepts:
+
+Data Persistance:
+    pickle, shelves, and database[sqlite]
+
+Object Serialization:
+    pickle module under python implements a powerful algorithm
+    for serialization and de-serialization of a data structure.
+    Serialization - Helps with Construct, transfer and De-Contruct of data
+'''
+
+import pickle as pk 
+
+print("Pickling Lists")
+
+variety = ["hot", "dill"]
+shape = ["whole", "spear"]
+brand = ["Heinz", "Vlassic"]
+
+file = open("pickles.dat", "wb") #wb means write binary
+pk.dump(variety, file)
+pk.dump(shape, file)
+pk.dump(brand, file) #dump function populates the list 
+file.close() # This will crea†e a serialized  
+
+# this created a serialized folder in the same directory as our saved code
+# this new file is called pickle.dat
