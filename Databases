@@ -63,3 +63,6 @@ print(data)
 conn.commit()
 conn.close()
 
+#The data is added to the table and can be viewed through the sqlite browser shown above
+
+
