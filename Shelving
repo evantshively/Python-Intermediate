@@ -1,0 +1,44 @@
+'''
+
+New concept Shelving
+
+'''
+
+import shelve
+
+#populating the data
+# We are defining this data in list format
+shelveObj = shelve.open("pickles2.dat")
+shelveObj['variety'] = ["sweet", "hot", "dill"]
+shelveObj['shape'] = ["whole", "spear", "chip"]
+shelveObj['brand'] = ["Claussen", "Heinz", "Vlassic"]
+shelveObj.sync()
+
+print("Retrieve the data from Shelve")
+print("Brand - ", shelveObj['brand'])
+
+'''
+Testing of Shelve concept further
+'''
+import shelve
+
+s = shelve.open("test_shelf.db")
+try:
+    s["objects"] = {"int": 10, "float": 9.5, "string": "Sample Data"}
+finally: #whether the file was opened or not it will close 
+    s.close()
+
+'''
+How to open this new file we created
+'''
+
+
+import shelve
+
+s = shelve.open("test_shelf.db")
+try:
+    existing = s["objects"]
+finally: #whether the file was opened or not it will close 
+    s.close()
+
+print(existing)
