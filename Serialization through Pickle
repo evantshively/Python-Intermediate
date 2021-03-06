@@ -95,3 +95,38 @@ with open("shakespeare.pkl", 'rb') as file:
 
 print(myNewList)
 
+'''
+
+Multiprocessing is a form of Complex Computation
+Its' main purpose is to save time
+
+When Complex computations have to be executed, it is common to distribute this
+task over several processes.
+
+Multiprocessing means several processes are executed simultaneously, 
+Usually over several CPUs or CPU Cores. 
+
+This is a basic program for multiprocessing:
+
+-----------
+
+multiprocessing as mp, and cos from math. 
+We will create a Pool abstraction, you can specify the amount of processors to use.
+The Pool can handle the multiprocessing in the background.
+
+cos function on a range is used to invoke the number of Pools for MultiThreading
+
+Lambda functions cannot be used in Pickles
+
+'''
+
+import multiprocessing as mp
+from math import cos  #coSign
+
+#IMPORTANT
+#IMPORTANT this is a lot of processing and can crash your computer
+
+#p = mp.Pool(2)
+#p.map(cos, range(2)) 
+# Code is set as a comment for safety
+
