@@ -1,0 +1,20 @@
+'''
+For this code project we grabbed a random image of a dog from the internet and saved is as dog.jpg in the same folder as our py module code
+
+'''
+
+import io 
+
+with open("dog.jpg", 'rb') as imgFile:  
+    jpgData = imgFile.read()
+
+# print(jpgData)
+# This gives us a bunch of byte characters that make up the image 
+
+if jpgData.startswith(b'\xff\xd8'):
+    text = u'This is a JPEG file (%d bytes long)\n'
+else:
+    text = u'This is a random file (%d bytes long)\n'
+
+with open("summary.txt", 'w', encoding='utf-8') as outFile:
+    outFile.write(text % len(jpgData))
