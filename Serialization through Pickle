@@ -55,3 +55,36 @@ print(data1)
 print(data2)
 print(data3)
 
+
+''' 
+
+Additional Examples 
+Pickling a text file
+
+'''
+
+import pickle as pk
+
+print("pickling text file")
+
+# this function uses the with command this opens in safe mode 
+# it opens and closes the file within the block of the code
+# this skips the step of using the close() command 
+
+myList = ["I wish upon a star. I love python. Shakespeare wrote Romeo and Juliet"]
+with open("shakespeare.pkl", "wb") as file:
+    pk.dump(myList, file)
+
+# never name a file similar to an object 
+# this can cause issues with your coding and importing
+# one way to remedy this is to use upper case letters in your file name
+
+''' Unpickle the text file '''
+
+import pickle
+
+with open("shakespeare.pkl", 'rb') as file:
+    myNewList = pickle.load(file)
+
+print(myNewList)
+
