@@ -1,0 +1,37 @@
+'''
+About Flask 
+
+In order to download and learn more about Flask a powerful tool for web based development in Python 
+Go to: 
+https://flask.palletsprojects.com/en/1.1.x/
+
+'''
+
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/predict', methods=['POST'])
+def print_square(): 
+	recieved_value = int(request.get_json(force=True))
+	return str(recieved_value**2)
+
+	#print square (Def = defintion) when you hit enter after a : it automatically goes 4 space
+	#this is a key indication technique in Python
+	#received_value an object for calculations int = integer 
+	#get_json parses the data as JSON JSON format is JavaScript Object Notation
+	# return is showing that we are squaring the integer by 2 
+
+if __name__ == '__main__':
+	app.run(host='0.0.0.0')
+  
+#Route is the path you want your application information to be sent to 
+#Line five is showing were we are directing our information
+#in adding predict after the route we are changing the endpoint
+#predict is the subdomain we are setting 
+#Default is always GET unless you change, the next line after the comma changes this to something else i.e POST
+#What happens? The function that follows happens 
+#16 is show us our main entrypoint in which to run the app 
+#this code is an example of how to organize proper code 
+#host is showing us where the IP address is we are running this 
+#for local host always use 0.0.0.0
