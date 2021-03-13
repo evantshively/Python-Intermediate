@@ -29,5 +29,27 @@ datetime: This module used to convert datetime in python's understandable format
 '''
 
 url = "https://www.quandl.com/api/v3/datatables/SHARADAR/SFP.json?api_key=sCJNpBm_3CDYKxgRbMFS"
-content = requests.get(url).content
-print(content) 
+strContent = requests.get(url).content
+#print(strcontent) 
+dataset = json.loads(strContent)
+#print(dataset)
+dataframe = list() # create an empty list
+
+# there is a lot of data here these next steps will help us organize the data
+# We will Loop through the dataset
+
+for row in dataset['datatable']['data']: #this directory can be found in the json data
+    #print(row)
+    #print(row[0])
+    date = datetime.datetime.strptime(row[1], '%Y-%m-%d')
+    date1 = datetime.datetime.strptime(row[9], '%Y-%m-%d')
+    data = (str(row[0]), date, row[2], row[3], row[4], row[5], row[6], row[7], row[8], date1)
+    dataframe.append(data)
+    print(dataframe)
+
+# Why did we use this format?
+'''
+This is a format compatible with most databases(SQL) we created a tuple list
+Which makes it easier to input into our database. The date format is a necessary help 
+for SQL
+'''
