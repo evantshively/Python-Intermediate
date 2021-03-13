@@ -1,0 +1,12 @@
+# Can be understood as an excel for python but more powerful and adaptable 
+
+#Additional package required to download
+#pip install world_bank_data --upgrade
+
+
+import pandas as pd 
+import world_bank_data as bd 
+
+print(bd.get_topics())
+print(bd.get_sources())
+print(bd.get_countries())
