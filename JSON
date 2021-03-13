@@ -5,3 +5,29 @@ countries_api_res = requests.get('http://api.worldbank.org/v2/countries?format=j
 countries = countries_api_res.json()[1]
 #print(countries)
 pprint.pprint(countries[0])
+
+'''
+JSON Continued
+'''
+
+# Start by importing the Required Library 
+import requests
+import json
+import datetime
+
+'''
+
+JSON data is very helpful for data visualization an example is Tabluo
+
+requests: - Using requests you can add content like headers, form data, multi part files, and parameters
+via simple python libraries 
+
+json: - Json used to encode and decode json data
+
+datetime: This module used to convert datetime in python's understandable format
+
+'''
+
+url = "https://www.quandl.com/api/v3/datatables/SHARADAR/SFP.json?api_key=sCJNpBm_3CDYKxgRbMFS"
+content = requests.get(url).content
+print(content) 
