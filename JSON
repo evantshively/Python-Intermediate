@@ -45,7 +45,8 @@ for row in dataset['datatable']['data']: #this directory can be found in the jso
     date1 = datetime.datetime.strptime(row[9], '%Y-%m-%d')
     data = (str(row[0]), date, row[2], row[3], row[4], row[5], row[6], row[7], row[8], date1)
     dataframe.append(data)
-    print(dataframe)
+
+print(dataframe)
 
 # Why did we use this format?
 '''
