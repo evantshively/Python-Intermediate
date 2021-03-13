@@ -1,0 +1,49 @@
+# Object Oriented Programming 
+'''
+OOP - Object Oriented Programming 
+Common in many programming languages 
+
+Designing your systems start with an Object Oriented Apporach using Properties, Interfaces, Methods/functions
+
+Example:
+
+Car -OOP
+    -Properties / Attributes - 4 wheels, Steering, Engine, Gas Tank, etc
+    -Interfaces - Methods/ Fuctions [Gas Pedal, Dashboard], 
+        -pressGas pedal - To increase acceleration
+    
+The company RationalRose created UML (Unified Modeling Language) which adapts this OOP model into their product
+
+Object: How do you identify Objects from requirements 
+    Requirements: You will identify nouns in that req, and they are classified as Objects
+    Subsystems for OOP:
+        OracleDB, MySQL, SQL Server, PostGres
+    Interaction:
+        1. Class Objects (Python, Java, C#) - Customer
+        2. Database Tables - Customer
+            -Insert Table
+            -Delete Table Data
+            -Retrieve from Table
+        3. Front End Services (Objects and Databases Interaction)
+
+'''
+# Classes all follow one structured Framework 
+
+#Building our Own OOP Model
+
+#Creating an Object in Python 
+
+class Robot:  # Class Definition, Robot is the name of the class #SuperClass
+    pass
+
+# From the above class Object, we will create a new Robot Objects
+if  __name__ == '__main__':   #This is the main method / line used by python to execute the code
+    # Now create new single instance of Robot Objects 
+    xRobot = Robot() # This is creating a new xRobot Object
+    yRobot = Robot() # This is creating a new yRobot Object 
+    print(id(xRobot))
+    print(id(yRobot))
+
+
+
+
