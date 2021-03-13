@@ -10,10 +10,13 @@ pprint.pprint(countries[0])
 JSON Continued
 '''
 
+## How to transform data stored as JSON into an SQL database 
 # Start by importing the Required Library 
+
 import requests
 import json
 import datetime
+import sqlite3
 
 '''
 
@@ -43,10 +46,9 @@ for row in dataset['datatable']['data']: #this directory can be found in the jso
     #print(row[0])
     date = datetime.datetime.strptime(row[1], '%Y-%m-%d')
     date1 = datetime.datetime.strptime(row[9], '%Y-%m-%d')
-    data = (str(row[0]), date, row[2], row[3], row[4], row[5], row[6], row[7], row[8], date1)
+    data = (str(row[0]), date, float(row[2]), float(row[3]), float(row[4]), float(row[5]), float(row[6]), float(row[7]), float(row[8]), date1)
     dataframe.append(data)
-
-print(dataframe)
+# print(dataframe)
 
 # Why did we use this format?
 '''
@@ -54,3 +56,41 @@ This is a format compatible with most databases(SQL) we created a tuple list
 Which makes it easier to input into our database. The date format is a necessary help 
 for SQL
 '''
+
+# Create Database Called nasdaq and create a table called Stocks 
+# Using cursor steps with we have used previously with databases
+
+try:
+    db = sqlite3.connect("nasdag.db")
+    cursor = db.cursor()
+    cursor.execute(''' CREATE TABLE stocks (ticker varchar(50), 
+                    date datetime, 
+                    open float,
+                    high float,
+                    low float,
+                    close float,
+                    volume float,
+                    dividends float,
+                    closeunadj float,
+                    lastupdated datetime
+    ) ''')
+except Exception as E:
+    print("Error : ", E)
+else:
+    print("Table Created") 
+
+# When engaging a DB it is a good idea to implement this try catch block
+# This formalizes your code when adding it to a bigger application
+# This is called bubbling up, it will show the exception rather than hide the cause of the error
+
+# Next step is to insert the data into the created table
+
+try:
+    cursor.executemany("INSERT INTO stocks VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) ", dataframe)   
+except Exception as E:
+    print("Error : ", E)
+else:
+    db.commit()
+    print("Data Inserted into Table")
+    
+# executemany it will take many inputs into the equation
