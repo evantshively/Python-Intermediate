@@ -94,3 +94,11 @@ else:
     print("Data Inserted into Table")
     
 # executemany it will take many inputs into the equation
+
+
+
+### For Deleting Data in the Database 
+
+try:
+    cursor.execute(''' DELETE FROM stocks''')  
+
